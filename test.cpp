@@ -17,15 +17,15 @@ int main(int argc, char** argv) {
 bool test_serialize() {
     Message msg = { 1, string("mydata"), milliseconds(1000), milliseconds(1000) };
     string msg_json = msg.serialize();
-    return msg_json == string("{\"data\":\"mydata\",\"dequeue_time\":1000,\"enqueue_time\":1000,\"priority\":1}");
+    return msg_json == string("{\"data\":\"mydata\",\"dequeueTime\":1000,\"enqueueTime\":1000,\"priority\":1}");
 }
 
 bool test_deserialize() {
     Message msg = { 1, string("mydata"), milliseconds(1000), milliseconds(1000) };
     string msg_json = msg.serialize();
     Message msg_parsed = msg.deserialize(msg_json);
-    return msg.enqueue_time == msg_parsed.enqueue_time &&
-           msg.dequeue_time == msg_parsed.dequeue_time &&
+    return msg.enqueueTime == msg_parsed.enqueueTime &&
+           msg.dequeueTime == msg_parsed.dequeueTime &&
            msg.data == msg_parsed.data &&
            msg.priority == msg_parsed.priority;
 }

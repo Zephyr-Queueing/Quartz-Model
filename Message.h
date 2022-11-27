@@ -7,12 +7,12 @@ using std::chrono::milliseconds;
 typedef struct Message {
     int priority;
     string data;
-    milliseconds enqueue_time;
-    milliseconds dequeue_time;
+    milliseconds enqueueTime;
+    milliseconds dequeueTime;
 
     Message();
     Message(int p, const string &d, const milliseconds &en, const milliseconds &de)
-        : priority(p), data(d), enqueue_time(en), dequeue_time(de) {};
+        : priority(p), data(d), enqueueTime(en), dequeueTime(de) {};
 
     string serialize();
     static Message deserialize(const string &msg);
