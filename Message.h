@@ -12,7 +12,9 @@ typedef struct Message {
     milliseconds dequeue_time;
 
     Message();
+    Message(int p, const string &d, const milliseconds &en, const milliseconds &de)
+        : priority(p), data(d), enqueue_time(en), dequeue_time(de) {};
 
-    static string serialize();
+    string serialize();
     static Message deserialize(const string &msg);
 } Message;
