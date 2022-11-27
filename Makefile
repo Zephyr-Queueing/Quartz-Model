@@ -1,21 +1,31 @@
 CC=g++
 CFLAGS=-std=c++11 -I=./ext
+EDIR=ext
+BDIR=bin
+ODIR=obj
+SDIR=src
+TDIR=test
+LDIR=lib
 
-all: clean install test
+all: clean mount install $(BDIR)/test package
 
-test: test.o Message.o
-	$(CC) $(CFLAGS) -o test test.o Message.o
+$(BDIR)/test: $(ODIR)/test.o $(ODIR)/Message.o
+	$(CC) $(CFLAGS) -o $(BDIR)/test $(ODIR)/test.o $(ODIR)/Message.o
 
-test.o: test.cpp Message.h
-	$(CC) $(CFLAGS) -o test.o -c test.cpp
+$(ODIR)/test.o: $(TDIR)/test.cpp $(SDIR)/Message.h
+	$(CC) $(CFLAGS) -o $(ODIR)/test.o -c $(TDIR)/test.cpp
 
-Message.o: Message.h Message.cpp
-	$(CC) $(CFLAGS) -o Message.o -c Message.cpp
+$(ODIR)/Message.o: $(SDIR)/Message.h $(SDIR)/Message.cpp
+	$(CC) $(CFLAGS) -o $(ODIR)/Message.o -c $(SDIR)/Message.cpp
+
+package:
+	ar -rcs $(LDIR)/message.a $(ODIR)/Message.o
 
 install:
-	rmdir -rf ext; \
-	mkdir ext; \
-	wget -P ext https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp \
+	wget -P $(EDIR) https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp
+
+mount:
+	mkdir $(EDIR) $(BDIR) $(ODIR) $(LDIR)
 
 clean:
-	rm -rf *.o test ext
+	rm -rf $(EDIR) $(BDIR) $(ODIR) $(LDIR)
