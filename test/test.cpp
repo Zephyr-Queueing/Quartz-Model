@@ -23,7 +23,7 @@ bool test_serialize() {
 bool test_deserialize() {
     Message msg = { 1, string("mydata"), milliseconds(1000), milliseconds(1000) };
     string msg_json = msg.serialize();
-    Message msg_parsed = msg.deserialize(msg_json);
+    Message msg_parsed = Message::deserialize(msg_json);
     return msg.enqueueTime == msg_parsed.enqueueTime &&
            msg.dequeueTime == msg_parsed.dequeueTime &&
            msg.data == msg_parsed.data &&
