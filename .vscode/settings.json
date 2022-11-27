@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "chrono": "cpp",
-        "xstring": "cpp",
-        "array": "cpp",
-        "vector": "cpp",
-        "xutility": "cpp"
-    }
-}
