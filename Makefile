@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-std=c++11 -I=./ext
+CFLAGS=-std=c++11 -Iext -Isrc
 EDIR=ext
 BDIR=bin
 ODIR=obj

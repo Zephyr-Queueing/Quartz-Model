@@ -1,6 +1,6 @@
 #include <string>
 #include <chrono>
-#include "../ext/json.hpp"
+#include <json.hpp>
 
 #include "Message.h"
 
