@@ -10,7 +10,7 @@ typedef struct Message {
     milliseconds enqueueTime;
     milliseconds dequeueTime;
 
-    Message();
+    Message() {};
     Message(int p, const string &d, const milliseconds &en, const milliseconds &de)
         : priority(p), data(d), enqueueTime(en), dequeueTime(de) {};
 

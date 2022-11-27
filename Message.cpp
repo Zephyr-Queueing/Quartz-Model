@@ -8,8 +8,6 @@ using nlohmann::json;
 using std::string;
 using std::chrono::milliseconds;
 
-Message::Message() {}
-
 string Message::serialize() {
     json j;
     j["priority"] = priority;
