@@ -1,3 +1,6 @@
+#ifndef MESSAGE_H
+#define MESSAGE_H
+
 #include <string>
 #include <chrono>
 
@@ -17,3 +20,5 @@ typedef struct Message {
     string serialize();
     static Message deserialize(const string &msg);
 } Message;
+
+#endif // MESSAGE_H
