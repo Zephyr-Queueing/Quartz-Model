@@ -2,8 +2,8 @@
 #include <string>
 #include <chrono>
 
-using namespace std;
-using namespace std::chrono;
+using std::string;
+using std::chrono::milliseconds;
 
 typedef struct Message {
     int priority;
@@ -13,6 +13,6 @@ typedef struct Message {
 
     Message();
 
-    string serialize();
+    static string serialize();
     static Message deserialize(const string &msg);
 } Message;

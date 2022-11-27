@@ -1,5 +1,7 @@
 CC=g++
-CFLAGS=
+CFLAGS=-std=c++11
+
+pkg-config nlohmann_json --cflags
 
 test: test.o Message.o
 	$(CC) $(CFLAGS) -o test test.o Message.o
