@@ -1,6 +1,6 @@
 # Quartz-Model
 
-Zephyr data model.
+Zephyr queueing system data model. Includes definition of JSON queue message that is serializable and deserializable (credit to https://github.com/nlohmann/json).
 
 ## Usage
 
